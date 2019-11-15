@@ -41,7 +41,7 @@
 
       function drawRectangles() {
         // make "filled" rectangles:
-        context.fillStyle = 'rgb(200,0,0)';
+        context.fillStyle = 'rgb(200, 0, 0)';
         context.fillRect(10, 10, 50, 50); // x, y, w, h 
         context.fillStyle = 'rgba(0, 0, 200, 0.5)';
         context.fillRect(20, 20, 50, 50);
@@ -63,6 +63,26 @@
         // waiting until here to update fillStyle works too:
         // context.fillStyle = 'rgb(200,0,0)';
         context.fill();
+
+        drawFace();
+      }
+
+      function drawFace() {
+        context.strokeStyle = 'black';
+        // context.lineWidth = 3;
+        context.beginPath();
+        // outer circle:
+        context.arc(75, 75, 50, 0, Math.PI * 2, true);
+        context.moveTo(110, 75);
+        // mouth (clockwise):
+        context.arc(75, 75, 35, 0, Math.PI, false);
+        context.moveTo(65, 65);
+        // left eye:
+        context.arc(60, 65, 5, 0, Math.PI * 2, true);
+        context.moveTo(95, 65);
+        // right eye:
+        context.arc(90, 65, 5, 0, Math.PI * 2, true);
+        context.stroke();
       }
     </script>
   </body>
