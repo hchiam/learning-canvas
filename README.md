@@ -19,3 +19,6 @@ You can even combine SVG and canvas.
 ## Tutorial
 
 <https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial>
+
+- `<canvas>` isn't supported on some older browsers.
+- `<canvas>` default size is 300 x 150 pixels.
