@@ -1,5 +1,7 @@
 # Learning `<canvas>`
 
+Just one of the things I'm learning. https://github.com/hchiam/learning
+
 ## SVG vs Canvas
 
 <https://www.sitepoint.com/canvas-vs-svg-choosing-the-right-tool-for-the-job/>
