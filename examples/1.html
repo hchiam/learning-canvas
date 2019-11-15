@@ -25,19 +25,44 @@
       <p>Fallback content describing the image.</p>
     </canvas>
     <script>
-      const canvas = document.getElementById('tutorial');
-      const context = canvas.getContext('2d');
-      const draw = () => {
-        context.fillStyle = 'rgb(200,0,0)';
-        context.fillRect(10, 10, 50, 50);
-        context.fillStyle = 'rgba(0, 0, 200, 0.5)';
-        context.fillRect(30, 30, 50, 50);
-      };
+      var canvas = document.getElementById('tutorial');
+      var context = canvas.getContext('2d');
 
       if (!context) {
         alert('canvas is not supported!');
       } else {
         draw();
+      }
+
+      function draw() {
+        drawRectangles();
+        drawPaths();
+      }
+
+      function drawRectangles() {
+        // make "filled" rectangles:
+        context.fillStyle = 'rgb(200,0,0)';
+        context.fillRect(10, 10, 50, 50); // x, y, w, h 
+        context.fillStyle = 'rgba(0, 0, 200, 0.5)';
+        context.fillRect(20, 20, 50, 50);
+        context.fillStyle = 'rgba(22, 230, 167, 0.5)';
+        context.fillRect(37, 37, 100, 100);
+        // make "erase" rectangle:
+        context.clearRect(45, 45, 60, 60); // x, y, w, h 
+        // make "line" rectangle:
+        context.strokeStyle = 'orange';
+        context.strokeRect(50, 50, 50, 50); // x, y, w, h 
+      }
+
+      function drawPaths() {
+        context.fillStyle = 'orange';
+        context.beginPath();
+        context.moveTo(85, 57); // x, y
+        context.lineTo(110, 82); // x, y
+        context.lineTo(110, 32);
+        // waiting until here to update fillStyle works too:
+        // context.fillStyle = 'rgb(200,0,0)';
+        context.fill();
       }
     </script>
   </body>

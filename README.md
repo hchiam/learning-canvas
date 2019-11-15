@@ -23,3 +23,36 @@ You can even combine SVG and canvas.
 - `<canvas>` isn't supported on some older browsers.
 - `<canvas>` default size is 300 x 150 pixels.
 - unlike SVG, `<canvas>` basic building blocks are *only* rectangles and paths.
+
+### Rectangles
+
+```js
+var canvas = document.getElementById('tutorial');
+var context = canvas.getContext('2d');
+context.strokeStyle = 'rgba(...)';
+context.fillRect(x, y, w, h);
+context.clearRect(x, y, w, h);
+context.strokeRect(x, y, w, h);
+```
+
+### Paths
+
+```js
+var canvas = document.getElementById('tutorial');
+var context = canvas.getContext('2d');
+context.stroke()
+context.fill(...)
+context.beginPath(...) // !
+context.closePath()
+context.moveTo(...)
+context.lineTo(...)
+context.bezierCurveTo(...)
+context.quadraticCurveTo(...)
+context.arc(...)
+context.arcTo(...)
+context.ellipse(...)
+context.rect(...)
+...
+```
+
+and more: <https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#Paths>
