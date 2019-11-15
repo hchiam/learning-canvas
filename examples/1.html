@@ -11,9 +11,34 @@
         color: whitesmoke;
         font-family: avenir, arial;
       }
+      canvas {
+        background: rgb(53, 53, 53);
+      }
     </style>
   </head>
-  <body>
-    1
+  <body onload="draw();">
+    <canvas id="tutorial" 
+            width="150" 
+            height="150" 
+            aria-label="Some label of the image" 
+            role="img">
+      <p>Fallback content describing the image.</p>
+    </canvas>
+    <script>
+      const canvas = document.getElementById('tutorial');
+      const context = canvas.getContext('2d');
+      const draw = () => {
+        context.fillStyle = 'rgb(200,0,0)';
+        context.fillRect(10, 10, 50, 50);
+        context.fillStyle = 'rgba(0, 0, 200, 0.5)';
+        context.fillRect(30, 30, 50, 50);
+      };
+
+      if (!context) {
+        alert('canvas is not supported!');
+      } else {
+        draw();
+      }
+    </script>
   </body>
 </html>
