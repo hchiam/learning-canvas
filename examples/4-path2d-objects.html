@@ -35,20 +35,22 @@
       }
 
       function draw(context) {
-        var canvas = document.getElementById('tutorial');
-        if (canvas.getContext) {
-          var ctx = canvas.getContext('2d');
+        // set but not draw rectangle:
+        var rectangle = new Path2D();
+        rectangle.rect(10, 10, 50, 50);
 
-          var rectangle = new Path2D();
-          rectangle.rect(10, 10, 50, 50);
+        // set but not draw circle:
+        var circle = new Path2D();
+        circle.moveTo(125, 35);
+        circle.arc(100, 35, 25, 0, 2 * Math.PI);
 
-          var circle = new Path2D();
-          circle.moveTo(125, 35);
-          circle.arc(100, 35, 25, 0, 2 * Math.PI);
+        // create but not draw SVG path:
+        var svgPath = new Path2D('M10 10 h 80 v 80 h -80 Z');
 
-          ctx.stroke(rectangle);
-          ctx.fill(circle);
-        }
+        // now actually draw them:
+        context.stroke(rectangle);
+        context.fill(circle);
+        context.stroke(svgPath);
       }
     </script>
   </body>
