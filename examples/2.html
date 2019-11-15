@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example</title>
+    <style>
+      body {
+        background: rgb(32,32,32);
+        color: whitesmoke;
+        font-family: avenir, arial;
+      }
+      canvas {
+        background: rgb(53, 53, 53);
+      }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="tutorial" 
+            width="250" 
+            height="150" 
+            aria-label="Some label of the image" 
+            role="img">
+      <p>Fallback content describing the image.</p>
+    </canvas>
+    <script>
+      var canvas = document.getElementById('tutorial');
+      var context = canvas.getContext('2d');
+
+      if (!context) {
+        alert('canvas is not supported!');
+      } else {
+        draw();
+      }
+
+      function draw() {
+        drawFancyCurves()
+      }
+
+      function drawFancyCurves() {
+        // quadratic Bézier curve: (uses a control point)
+        context.beginPath();
+        context.moveTo(75, 25);
+        context.quadraticCurveTo(25, 25, 25, 62.5); // cpx, cpy, x, y
+        context.quadraticCurveTo(25, 100, 50, 100);
+        context.quadraticCurveTo(50, 120, 30, 125);
+        context.quadraticCurveTo(60, 120, 65, 100);
+        context.quadraticCurveTo(125, 100, 125, 62.5);
+        context.quadraticCurveTo(125, 25, 75, 25);
+        context.stroke();
+        // cubic Bézier curve: (uses 2 control points)
+        context.beginPath();
+        context.moveTo(175, 40);
+        context.bezierCurveTo(175, 37, 170, 25, 150, 25); // cp1x, cp1y, cp2x, cp2y, x, y
+        context.bezierCurveTo(120, 25, 120, 62.5, 120, 62.5);
+        context.bezierCurveTo(120, 80, 140, 102, 175, 120);
+        context.bezierCurveTo(210, 102, 230, 80, 230, 62.5);
+        context.bezierCurveTo(230, 62.5, 230, 25, 200, 25);
+        context.bezierCurveTo(185, 25, 175, 37, 175, 40);
+        context.stroke();
+      }
+    </script>
+  </body>
+</html>
