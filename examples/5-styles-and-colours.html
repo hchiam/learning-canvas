@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example - Path2D objects</title>
+    <style>
+      body {
+        background: rgb(32,32,32);
+        color: whitesmoke;
+        font-family: avenir, arial;
+      }
+      canvas {
+        background: rgb(53, 53, 53);
+      }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="tutorial" 
+            width="300" 
+            height="150" 
+            aria-label="Some label of the image" 
+            role="img">
+      <p>Fallback content describing the image.</p>
+    </canvas>
+    <script>
+      const canvas = document.getElementById('tutorial');
+      const context = canvas.getContext('2d');
+
+      if (!context) {
+        alert('canvas is not supported!');
+      } else {
+        draw(context);
+      }
+
+      function draw(context) {
+        // context.globalAlpha = 0.5; // == transparency from now on
+        demonstrateGradient(context);
+        demonstrateRoundedEnds(context);
+        demonstrateLineJoins(context);
+        demonstrateAnimatedDashedLine(context);
+      }
+
+      function demonstrateGradient(context) {
+        context.lineWidth = 5;
+        for (let i = 0; i < 6; i++) {
+          for (let j = 0; j < 6; j++) {
+            const r = 0;
+            const g = Math.floor(255 - 42.5 * i);
+            const b = Math.floor(255 - 42.5 * j);
+            context.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.5)`;
+            context.beginPath();
+            context.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+            context.stroke();
+          }
+        }
+      }
+
+      function demonstrateRoundedEnds(context) {
+        context.strokeStyle = 'orange';
+        context.lineCap = 'round';
+        context.beginPath();
+        context.moveTo(10, 10);
+        context.lineTo(140, 10);
+        context.moveTo(10, 140);
+        context.lineTo(140, 140);
+        context.stroke();
+      }
+
+      function demonstrateLineJoins(context) {
+        context.strokeStyle = 'rgba(0, 0, 0, 0.7)';
+        var lineJoin = ['round', 'bevel', 'miter'];
+        context.lineWidth = 10;
+        for (var i = 0; i < lineJoin.length; i++) {
+          context.lineJoin = lineJoin[i];
+          context.beginPath();
+          context.moveTo(-5, 5 + i * 40);
+          context.lineTo(35, 45 + i * 40);
+          context.lineTo(75, 5 + i * 40);
+          context.lineTo(115, 45 + i * 40);
+          context.lineTo(155, 5 + i * 40);
+          context.stroke();
+        }
+      }
+
+      function demonstrateAnimatedDashedLine(context) {
+        context.lineWidth = 4;
+        context.strokeStyle = 'white';
+        context.strokeRect(170, 20, 100, 100);
+        let offset = 0;
+        march();
+        function march() {
+          offset++;
+          if (offset > 16) {
+            offset = 0;
+          }
+
+          // clear
+          context.clearRect(190, 70, 100, 100);
+
+          // set dash [length, gap]
+          context.setLineDash([4, 10]);
+
+          // set dash start position offset
+          context.lineDashOffset = -offset; // <-- <-- <--
+
+          // draw rectangle line (with dash property set by setLineDash)
+          context.strokeRect(170, 20, 100, 100);
+
+          // call match again to loop:
+          setTimeout(march, 7);
+        }
+      }
+    </script>
+  </body>
+</html>
