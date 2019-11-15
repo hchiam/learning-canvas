@@ -31,14 +31,14 @@
       if (!context) {
         alert('canvas is not supported!');
       } else {
-        draw();
+        draw(context);
       }
 
-      function draw() {
-        drawFancyCurves()
+      function draw(context) {
+        drawFancyCurves(context)
       }
 
-      function drawFancyCurves() {
+      function drawFancyCurves(context) {
         // quadratic Bézier curve: (uses a control point)
         context.beginPath();
         context.moveTo(75, 25);

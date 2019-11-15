@@ -31,15 +31,15 @@
       if (!context) {
         alert('canvas is not supported!');
       } else {
-        draw();
+        draw(context);
       }
 
-      function draw() {
-        drawRectangles();
-        drawPaths();
+      function draw(context) {
+        drawRectangles(context);
+        drawPaths(context);
       }
 
-      function drawRectangles() {
+      function drawRectangles(context) {
         // make "filled" rectangles:
         context.fillStyle = 'rgb(200, 0, 0)';
         context.fillRect(10, 10, 50, 50); // x, y, w, h 
@@ -54,7 +54,7 @@
         context.strokeRect(50, 50, 50, 50); // x, y, w, h 
       }
 
-      function drawPaths() {
+      function drawPaths(context) {
         context.fillStyle = 'orange';
         context.beginPath();
         context.moveTo(85, 57); // x, y
@@ -64,7 +64,7 @@
         // context.fillStyle = 'rgb(200,0,0)';
         context.fill();
 
-        drawFace();
+        drawFace(context);
 
         // filled triangle
         context.fillStyle = 'rgba(255, 255, 255, 0.25)';
@@ -83,10 +83,10 @@
         context.closePath(); // ! strokes do not automatically close path!
         context.stroke(); // does NOT automatically close path!
 
-        drawArcs();
+        drawArcs(context);
       }
 
-      function drawFace() {
+      function drawFace(context) {
         context.strokeStyle = 'black';
         // context.lineWidth = 3;
         context.beginPath();
@@ -104,7 +104,7 @@
         context.stroke();
       }
 
-      function drawArcs() {
+      function drawArcs(context) {
         context.fillStyle = context.strokeStyle = 'rgba(0, 0, 0, 0.5)';
         // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
         for (var i = 0; i < 4; i++) {
