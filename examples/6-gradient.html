@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example - Path2D objects</title>
+    <style>
+      body {
+        background: rgb(32,32,32);
+        color: whitesmoke;
+        font-family: avenir, arial;
+      }
+      canvas {
+        background: rgb(53, 53, 53);
+      }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="tutorial" 
+            width="300" 
+            height="150" 
+            aria-label="Some label of the image" 
+            role="img">
+      <p>Fallback content describing the image.</p>
+    </canvas>
+    <script>
+      const canvas = document.getElementById('tutorial');
+      const context = canvas.getContext('2d');
+
+      if (!context) {
+        alert('canvas is not supported!');
+      } else {
+        draw(context);
+      }
+
+      function draw(context) {
+        drawLinearGradient(context);
+        drawRadialGradient(context);
+      }
+
+      function drawLinearGradient(context) {
+        // create gradient (x1, y1, x2, y2)
+        const linearGradient = context.createLinearGradient(0, 0, 0, 150);
+            // blue to white:
+            linearGradient.addColorStop(0, 'cyan');
+            linearGradient.addColorStop(0.5, 'white');
+            // green to white:
+            linearGradient.addColorStop(0.5, 'lime');
+            linearGradient.addColorStop(1, '#000');
+        // assign gradient to fill style
+        context.fillStyle = linearGradient;
+        // actually draw the filled rectangle
+        context.fillRect(10, 10, 130, 130);
+      }
+
+      function drawRadialGradient(context) {
+        // create gradient (x1, y1, r1, x2, y2, r2)
+        const radialGradient = context.createRadialGradient(45, 45, 10, 52, 50, 30);
+            // light at 0, between at 0.9, darkest at 1:
+            radialGradient.addColorStop(0, '#A7D30C');
+            radialGradient.addColorStop(0.9, '#019F62');
+            radialGradient.addColorStop(1, 'rgba(1, 159, 98, 0)');
+            // the last stop is at radius 30, which is inside the rectangle
+        // assign gradient to fill style
+        context.fillStyle = radialGradient;
+        // actually draw the rectangle
+        // (filled with 2 gradient circles that end inside the rectangle)
+        context.fillRect(0, 0, 150, 150);
+      }
+    </script>
+  </body>
+</html>
