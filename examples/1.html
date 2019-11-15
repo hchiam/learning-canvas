@@ -65,6 +65,23 @@
         context.fill();
 
         drawFace();
+
+        // filled triangle
+        context.fillStyle = 'rgba(255, 255, 255, 0.25)';
+        context.beginPath();
+        context.moveTo(25, 25);
+        context.lineTo(105, 25);
+        context.lineTo(25, 105);
+        context.fill(); // automatically closes path (since filling it)
+
+        // line triangle
+        context.strokeStyle = 'rgb(255, 255, 255)';
+        context.beginPath();
+        context.moveTo(125, 125);
+        context.lineTo(125, 45);
+        context.lineTo(45, 125);
+        context.closePath(); // ! strokes do not automatically close path!
+        context.stroke(); // does NOT automatically close path!
       }
 
       function drawFace() {
