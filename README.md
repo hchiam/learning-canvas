@@ -22,3 +22,4 @@ You can even combine SVG and canvas.
 
 - `<canvas>` isn't supported on some older browsers.
 - `<canvas>` default size is 300 x 150 pixels.
+- unlike SVG, `<canvas>` basic building blocks are *only* rectangles and paths.
