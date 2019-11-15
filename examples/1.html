@@ -18,8 +18,8 @@
   </head>
   <body onload="draw();">
     <canvas id="tutorial" 
-            width="150" 
-            height="150" 
+            width="500" 
+            height="250" 
             aria-label="Some label of the image" 
             role="img">
       <p>Fallback content describing the image.</p>
@@ -82,6 +82,8 @@
         context.lineTo(45, 125);
         context.closePath(); // ! strokes do not automatically close path!
         context.stroke(); // does NOT automatically close path!
+
+        drawArcs();
       }
 
       function drawFace() {
@@ -100,6 +102,30 @@
         // right eye:
         context.arc(90, 65, 5, 0, Math.PI * 2, true);
         context.stroke();
+      }
+
+      function drawArcs() {
+        context.fillStyle = context.strokeStyle = 'rgba(0, 0, 0, 0.5)';
+        // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+        for (var i = 0; i < 4; i++) {
+          for (var j = 0; j < 3; j++) {
+            context.beginPath();
+            var x = 225 + j * 50;
+            var y = 50 + i * 50;
+            var arcRadius = 20;
+            var startAngle = 0; // in radians, not degrees
+            var endAngle = Math.PI + (Math.PI * j) / 2; // in radians, not degrees
+            var anticlockwise = (i % 2 !== 0); // every other
+
+            context.arc(x, y, arcRadius, startAngle, endAngle, anticlockwise);
+
+            if (i > 1) {
+              context.fill();
+            } else {
+              context.stroke();
+            }
+          }
+        }
       }
     </script>
   </body>
