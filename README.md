@@ -40,8 +40,8 @@ context.strokeRect(x, y, w, h);
 ```js
 var canvas = document.getElementById('tutorial');
 var context = canvas.getContext('2d');
-context.stroke()
-context.fill(...)
+context.stroke() // to draw line shape
+context.fill(...) // to draw filled shape
 context.beginPath(...) // !
 context.closePath()
 context.moveTo(...)
