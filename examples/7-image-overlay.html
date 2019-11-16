@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example - Path2D objects</title>
+    <style>
+      body {
+        background: rgb(32,32,32);
+        color: whitesmoke;
+        font-family: avenir, arial;
+      }
+      canvas {
+        background: rgb(53, 53, 53);
+      }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="tutorial" 
+            width="340" 
+            height="155" 
+            aria-label="Some label of the image" 
+            role="img">
+      <p>Fallback content describing the image.</p>
+    </canvas>
+    <!-- images for use: -->
+    <div style="display:none;" role="none">
+      <img id="source" src="https://mdn.mozillademos.org/files/5397/rhino.jpg" alt="rhino" width="300" height="227">
+      <img id="frame" src="https://mdn.mozillademos.org/files/242/Canvas_picture_frame.png" alt="picture frame" width="132" height="150">
+    </div>
+    <script>
+      function draw() {
+        const canvas = document.getElementById('tutorial');
+        const context = canvas.getContext('2d');
+        if (!context) {
+          alert('canvas is not supported!');
+          return;
+        }
+
+        // dynamic graph line over a static chart background:
+        var img = new Image();
+        img.src = 'https://mdn.mozillademos.org/files/5395/backdrop.png';
+        img.onload = function() {
+          context.drawImage(img, 10, 10);
+          context.beginPath();
+          context.moveTo(39, 106);
+          context.lineTo(80, 76);
+          context.lineTo(113, 86);
+          context.lineTo(180, 25);
+          context.strokeStyle = 'green';
+          context.lineWidth = 10;
+          context.lineCap = 'round';
+          context.stroke();
+        };
+
+        // rhino in a picture frame:
+        // drawImage: (image, sx, sy, sw, sh, dx, dy, dw, dh):
+        context.drawImage(document.getElementById('source'), 33, 71, 104, 124, 221, 25, 87, 104);
+        context.drawImage(document.getElementById('frame'), 200, 5);
+      }
+    </script>
+  </body>
+</html>
