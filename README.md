@@ -56,3 +56,18 @@ context.rect(...)
 ```
 
 **Note:** `Path2D` object is like a "macro" that "records" paths that you can play back quickly. It is *NOT* currently available in IE.
+
+### Transformations
+
+- save & restore state: `context.save()` and `context.restore()`
+- translate: `context.translate(x, y)`
+- rotate: `context.rotate(angleInRadians)`
+- scale: `context.scale(x, y)`
+- matrix transform: `context.transform(a, b, c, d, e, f)` for matrix `[[a, c, e], [b, d, f], [0, 0, 1]]` and `context.resetTransform()`:
+  - `a` = horizontal scaling
+  - `b` = horizontal skewing
+  - `c` = vertical skewing
+  - `d` = vertical scaling
+  - `e` = horizontal moving
+  - `f` = vertical moving
+  - `context.setTransform(a, b, c, d, e, f)` undoes the previous transform and sets a new one (instead of transforming an already-transformed version)
