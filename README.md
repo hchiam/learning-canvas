@@ -81,9 +81,9 @@ Everything after it will only show up inside the clipping path.
 <https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations>
 
 1. **clear** canvas `context.clearRect(x, y, w, h);`
-2. (**save state** of canvas (if you want to reuse it each frame) `context.save();`)
+2. (**save state** of canvas (if you want to reuse it each frame) [`context.save();`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/save))
 3. **draw**
-4. (**restore state** of canvas (before the next frame, if you already want to save state) `context.restore();`)
+4. (**restore state** of canvas (before the next frame, if you already want to save state) [`context.restore();`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/restore))
 
 <https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations>
 
