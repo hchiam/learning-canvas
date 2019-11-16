@@ -25,16 +25,15 @@
       <p>Fallback content describing the image.</p>
     </canvas>
     <script>
-      var canvas = document.getElementById('tutorial');
-      var context = canvas.getContext('2d');
+      function draw() {
+        const canvas = document.getElementById('tutorial');
+        const context = canvas.getContext('2d');
 
-      if (!context) {
-        alert('canvas is not supported!');
-      } else {
-        draw(context);
-      }
+        if (!context) {
+          alert('canvas is not supported!');
+          return;
+        }
 
-      function draw(context) {
         drawRectangles(context);
         drawPaths(context);
       }

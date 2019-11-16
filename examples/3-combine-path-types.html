@@ -25,16 +25,15 @@
       <p>Fallback content describing the image.</p>
     </canvas>
     <script>
-      const canvas = document.getElementById('tutorial');
-      const context = canvas.getContext('2d');
+      function draw() {
+        const canvas = document.getElementById('tutorial');
+        const context = canvas.getContext('2d');
 
-      if (!context) {
-        alert('canvas is not supported!');
-      } else {
-        draw(context);
-      }
+        if (!context) {
+          alert('canvas is not supported!');
+          return;
+        }
 
-      function draw(context) {
         // use helper function
         roundedRect(context, x=12, y=12, width=190, height=175, radius=15);
         roundedRect(context, 19, 19, 175, 160, 9);
