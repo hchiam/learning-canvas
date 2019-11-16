@@ -75,3 +75,28 @@ context.rect(...)
 ### Clipping paths
 
 Everything after it will only show up inside the clipping path.
+
+### Animation
+
+<https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations>
+
+<https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations>
+
+### Pixel manipulation
+
+<https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas>
+
+Examples:
+
+- Colour picker
+- Colour filter
+- Zooming and anti-aliasing
+- Saving images
+
+### Hit regions
+
+<https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility>
+
+### Perf tips
+
+<https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas>
