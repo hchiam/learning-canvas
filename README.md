@@ -16,6 +16,10 @@ Just one of the things I'm learning. <https://github.com/hchiam/learning>
 
 You can even combine SVG and canvas.
 
+## Canvas vs WebGL
+
+[WebGL](https://github.com/hchiam/learning-webgl) uses `<canvas>`. WebGL tutorial: <https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial>
+
 ## Tutorial
 
 <https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial>
