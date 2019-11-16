@@ -98,7 +98,7 @@ Examples:
 - Zooming and anti-aliasing
 - Saving images
 
-### Hit regions
+### Hit regions ***(currently experimental)***
 
 <https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Hit_regions_and_accessibility>
 
