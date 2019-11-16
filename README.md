@@ -71,3 +71,7 @@ context.rect(...)
   - `e` = horizontal moving
   - `f` = vertical moving
   - `context.setTransform(a, b, c, d, e, f)` undoes the previous transform and sets a new one (instead of transforming an already-transformed version)
+
+### Clipping paths
+
+Everything after it will only show up inside the clipping path.
