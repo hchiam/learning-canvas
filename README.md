@@ -55,6 +55,4 @@ context.rect(...)
 ...
 ```
 
-and more: <https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#Paths>
-
 **Note:** `Path2D` object is like a "macro" that "records" paths that you can play back quickly. It is *NOT* currently available in IE.
