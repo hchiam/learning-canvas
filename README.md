@@ -80,6 +80,11 @@ Everything after it will only show up inside the clipping path.
 
 <https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations>
 
+1. **clear** canvas
+2. **save state** of canvas (if you want to reuse it each frame)
+3. **draw**
+4. **restore state** of canvas (before the next frame, if you already want to save state)
+
 <https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Advanced_animations>
 
 ### Pixel manipulation
