@@ -9,10 +9,12 @@ Just one of the things I'm learning. <https://github.com/hchiam/learning>
 **SVG** = visual scalability but more DOM memory.
 
 - good for hi-fi interactive graphics.
+- better performance with: less objects over more surface area.
 
 **Canvas** = "paint-and-forget" less DOM memory but raster instead of ability to do vector scaling.
 
 - good for painting detailed small pixels, like weather maps.
+- better performance with: more objects over less surface area.
 
 You can even combine SVG and canvas.
 
