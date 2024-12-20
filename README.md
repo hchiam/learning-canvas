@@ -114,4 +114,4 @@ Examples:
 
 ## miscellaneous notes
 
-<https://github.com/hchiam/canvasConverse>
+<https://github.com/hchiam/canvas-converse>
