@@ -111,3 +111,7 @@ Examples:
 ### Perf tips
 
 <https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas>
+
+## miscellaneous notes
+
+<https://github.com/hchiam/canvasConverse>
